@@ -37,7 +37,7 @@ class MoviesController < ApplicationController
       english: ( params[:english] = true )
     )
 
-    movie.save
+    movie.save!
     render json: movie.as_json
   end
 
