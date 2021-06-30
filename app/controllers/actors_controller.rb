@@ -2,12 +2,12 @@ class ActorsController < ApplicationController
 
   def index
     actors = Actor.all
-    render json: actors.as_json
+    render json: actors
   end
   
   def show
     actor = Actor.find_by(id: params[:id])
-    render json: actor.as_json
+    render json: actor
   end
 
   def update
@@ -22,7 +22,7 @@ class ActorsController < ApplicationController
     actor.movie_id = params[:movie_id]
 
     if actor.save
-      render json: actor.as_json
+      render json: actor
     else
       render json: {error: actor.errors.full_messages}, status: :unprocessable_entity
     end
@@ -34,11 +34,12 @@ class ActorsController < ApplicationController
       last_name: params[:last_name],
       known_for: params[:year],
       gender: params[:gender],
-      age: params[:age]
+      age: params[:age],
+      movie_id: params[:movie_id]
     )
 
     if actor.save
-      render json: actor.as_json
+      render json: actor
     else
       render json: {error: actor.errors.full_messages}, status: :unprocessable_entity
     end
@@ -49,7 +50,7 @@ class ActorsController < ApplicationController
     actor = Actor.find_by(id: the_id)
 
     actor.destroy
-    render json: actor.as_json
+    render json: actor
   end
 
 end

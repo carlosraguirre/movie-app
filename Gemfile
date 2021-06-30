@@ -42,3 +42,5 @@ gem 'ffaker'
 gem 'http'
 
 gem 'jc-validates_timeliness'
+
+gem 'active_model_serializers', '~> 0.10.0'
