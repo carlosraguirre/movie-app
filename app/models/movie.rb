@@ -4,4 +4,6 @@ class Movie < ApplicationRecord
   validates :director, presence: true, length: {in: 2..500}
   validates :year, presence: true
 
+  has_many :actors
+
 end

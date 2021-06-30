@@ -19,11 +19,13 @@ class ActorsController < ApplicationController
     actor.known_for = params[:known_for]
     actor.gender = params[:gender]
     actor.age = params[:age]
+    actor.movie_id = params[:movie_id]
 
     if actor.save
       render json: actor.as_json
     else
       render json: {error: actor.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def create
